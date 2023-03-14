@@ -89,3 +89,27 @@ exports.getCity = async (req,res,next) =>{
         })
     }
 }
+
+exports.getAllCities = async (req,res,next) =>{
+    try{
+        const cities = await cityService.getAllCities(req.query);
+        if(!cities){
+            return res.status(404).json({
+                status:"Failed!",
+                message:"Cannot fetch the cities!"
+            })
+        }
+        res.status(200).json({
+            status:"Success",
+            message:"Successfully fetched",
+            data: cities
+        })
+    }
+    catch(error){
+        res.status(401).json({
+            status:"Failed!",
+            message:"There is some error while getting cities!",
+            error
+        })
+    }
+}
