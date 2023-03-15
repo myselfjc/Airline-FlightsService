@@ -1,11 +1,10 @@
 const { Airplane } = require('../models/index');
 
 class AirplaneRepository {
-    async createAirplane({ model_number, capacity }){
+    async createAirplane({ data }){
         try{
             const airplane = await Airplane.create({
-                model_number,
-                capacity
+                data
             })
             return airplane
         }

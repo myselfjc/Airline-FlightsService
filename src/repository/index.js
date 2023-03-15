@@ -1,4 +1,5 @@
 module.exports = {
     CityRepository: require('./cityRepository'),
-    AirplaneRepository: require('./airplaneRepository')
+    AirplaneRepository: require('./airplaneRepository'),
+    FlightRepository: require('./flightRepository')
 };
