@@ -21,8 +21,15 @@ router
     .post(airplaneController.create);
 
 router
+    .route('/airplane/:id')
+    .get(airplaneController.get)
+    .patch(airplaneController.update)
+    .delete(airplaneController.delete)
+
+router
     .route('/flight')
-    .post(flightController.createFlight);
+    .post(flightController.createFlight)
+    .get(flightController.getAllFlights)
                     
 
 module.exports = router;

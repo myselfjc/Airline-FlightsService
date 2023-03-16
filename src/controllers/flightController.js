@@ -22,8 +22,34 @@ exports.createFlight = async (req,res,next) => {
     catch(error){
         res.status(401).json({
             status:"Failed!",
-            message:"There is some error while creating flight!",
+            message:"There is some error while creating flight",
             error
         })
-    }  
+    }
+}
+
+exports.getAllFlights = async (req,res,next) => {
+    try{
+        const flights = await flightService.getAllFlights(req.query);
+        console.log(flights);
+        if(!flights){
+            res.status(401).json({
+                status:"Failed!",
+                message:"There is some error while fetching flights",
+                error
+            })
+        }
+        res.status(200).json({
+            status:"Success",
+            message:"Flights fetched Successfully!",
+            data: flights
+        })
+    }
+    catch(error){
+        res.status(401).json({
+            status:"Failed!",
+            message:"There is some error while fetching flights",
+            error
+        })
+    }
 }
