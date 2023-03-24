@@ -54,6 +54,28 @@ class FlightRepository{
             throw {error}
         }  
     }
+
+    async getFlight(id){
+        try {
+            const reqFlight = await flight.findByPk(id);
+            return reqFlight
+        } catch (error) {
+            throw {error}
+        }
+    }
+
+    async updateFlight(data,id){
+        try {
+            const reqFlight = await flight.update(data,{
+                where:{
+                    id
+                }
+            })
+            return reqFlight
+        } catch (error) {
+            throw {error}
+        }
+    }
 }
 
 module.exports = FlightRepository;
