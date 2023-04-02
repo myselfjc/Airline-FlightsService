@@ -12,7 +12,7 @@ const serverSetupAndStart = async () => {
     app.use(express.json());
 
     //Defining the routes
-    app.use('/api/v1',Routes);
+    app.use('/flightSearch/api/v1',Routes);
 
     
 
